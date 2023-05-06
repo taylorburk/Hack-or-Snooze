@@ -24,11 +24,6 @@ const $navLogOut = $("#nav-logout");
 
 const $userProfile = $("#user-profile");
 
-/** To make it easier for individual components to show just themselves, this
- * is a useful function that hides pretty much everything on the page. After
- * calling this, individual components can re-show just what they want.
- */
-
 function hidePageComponents() {
   const components = [
     $storiesLists,
@@ -40,7 +35,7 @@ function hidePageComponents() {
   components.forEach(c => c.hide());
 }
 
-/** Overall function to kick off the app. */
+
 
 async function start() {
   console.debug("start");
