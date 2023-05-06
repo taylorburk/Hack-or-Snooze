@@ -3,7 +3,6 @@
 // This is the global list of the stories, an instance of StoryList
 let storyList;
 
-/** Get and show stories when site first loads. */
 
 async function getAndShowStoriesOnStart() {
   storyList = await StoryList.getStories();
@@ -12,13 +11,7 @@ async function getAndShowStoriesOnStart() {
   putStoriesOnPage();
 }
 
-/**
- * A render method to render HTML for an individual Story instance
- * - story: an instance of Story
- * - showDeleteBtn: show delete button?
- *
- * Returns the markup for the story.
- */
+
 
 function generateStoryMarkup(story, showDeleteBtn = false) {
   // console.debug("generateStoryMarkup", story);
@@ -51,7 +44,6 @@ function getDeleteBtnHTML() {
       </span>`;
 }
 
-/** Make favorite/not-favorite star for story */
 
 function getStarHTML(story, user) {
   const isFavorite = user.isFavorite(story);
@@ -62,7 +54,7 @@ function getStarHTML(story, user) {
       </span>`;
 }
 
-/** Gets list of stories from server, generates their HTML, and puts on page. */
+
 
 function putStoriesOnPage() {
   console.debug("putStoriesOnPage");
@@ -78,7 +70,7 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
-/** Handle deleting a story. */
+
 
 async function deleteStory(evt) {
   console.debug("deleteStory");
@@ -94,7 +86,6 @@ async function deleteStory(evt) {
 
 $ownStories.on("click", ".trash-can", deleteStory);
 
-/** Handle submitting new story form. */
 
 async function submitNewStory(evt) {
   console.debug("submitNewStory");
@@ -119,9 +110,7 @@ async function submitNewStory(evt) {
 
 $submitForm.on("submit", submitNewStory);
 
-/******************************************************************************
- * Functionality for list of user's own stories
- */
+
 
 function putUserStoriesOnPage() {
   console.debug("putUserStoriesOnPage");
@@ -141,11 +130,7 @@ function putUserStoriesOnPage() {
   $ownStories.show();
 }
 
-/******************************************************************************
- * Functionality for favorites list and starr/un-starr a story
- */
 
-/** Put favorites list on page. */
 
 function putFavoritesListOnPage() {
   console.debug("putFavoritesListOnPage");
@@ -165,7 +150,7 @@ function putFavoritesListOnPage() {
   $favoritedStories.show();
 }
 
-/** Handle favorite/un-favorite a story */
+
 
 async function toggleStoryFavorite(evt) {
   console.debug("toggleStoryFavorite");
